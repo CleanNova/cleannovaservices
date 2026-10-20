@@ -31,7 +31,7 @@ npm run preview    # sirve dist/ en http://localhost:4173
 - **Reseñas / testimonios:** no hay ninguno publicado porque no se deben inventar. Agregar la sección cuando existan reseñas reales (Google, clientes).
 - **Fotos reales** (equipo, antes y después). El sitio usa ilustraciones y formas, no fotos de stock.
 - Seguro y *bonded*, licencias, años de experiencia: agregarlos solo si son ciertos.
-- Dominio, dirección del negocio, redes sociales, Telegram (la tarjeta muestra el ícono pero no el usuario) y datos estructurados en `index.html`.
+- Dominio, dirección del negocio, Telegram (la tarjeta muestra el ícono pero no el usuario) y datos estructurados en `index.html`.
 - Páginas legales (privacidad y términos).
 
 ## Publicación
@@ -77,6 +77,6 @@ src/
 
 ## Verificación
 
-El flujo completo (31 comprobaciones: validaciones, edición, idioma, borrador, envío exitoso y fallido, móvil) y las auditorías automáticas (axe sin violaciones; Lighthouse 100/100/100/100 en escritorio y 98/100/100/100 en móvil) se ejecutaron contra la compilación de producción. Los scripts de prueba no forman parte del repositorio.
+El flujo completo (32 comprobaciones: validaciones, edición, idioma, borrador, envío exitoso y fallido, móvil) y las auditorías automáticas (axe sin violaciones; Lighthouse 100/100/100/100 en escritorio y 98/100/100/100 en móvil) se ejecutaron contra la compilación de producción. Los scripts de prueba no forman parte del repositorio.
 
 **No verificado:** la entrega a un Formspree/Web3Forms real (se probó contra un servidor de formularios simulado) y la apariencia en iPhone/Safari reales (se probó con Chromium).
