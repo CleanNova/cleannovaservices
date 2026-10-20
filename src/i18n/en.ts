@@ -23,6 +23,7 @@ export const en = {
     menu: 'Open menu',
     close: 'Close menu',
     language: 'Español',
+    switchLang: 'Switch language',
     skip: 'Skip to content',
   },
   hero: {
@@ -279,6 +280,9 @@ export const en = {
       title: 'When works for you?',
       date: 'Preferred date',
       dateHelp: 'We will confirm availability. Earliest date shown is tomorrow.',
+      quick: 'Quick pick',
+      other: 'Or choose another date',
+      tomorrow: 'Tomorrow',
       window: 'Time window',
       windows: {
         morning: 'Morning (8am – 12pm)',
@@ -301,6 +305,7 @@ export const en = {
         string
       >,
       privacy: 'We only use your information to prepare your quote and contact you about your cleaning.',
+      placeholders: { name: 'Maria Lopez', phone: '(619) 555-0123', email: 'you@email.com', address: '123 Main St, Apt 4', zip: '92101' },
     },
     review: {
       title: 'Review and send',
@@ -316,6 +321,7 @@ export const en = {
       custom: 'Custom quote — we will contact you with a price',
       disclaimer: 'This is an estimate, not a final price. Your request is not a confirmed booking until we confirm it with you.',
       none: 'None',
+      edit: 'Edit',
       bedroomsLabel: '{n} bed',
       bathroomsLabel: '{n} bath',
     },
@@ -332,6 +338,13 @@ export const en = {
       title: 'Request received!',
       text: 'Thank you, {name}. We will review your request and confirm your booking by {channel}.',
       newRequest: 'Start a new request',
+      summary: 'Your request',
+      nextTitle: 'What happens next',
+      next: [
+        'We review your request and the details you shared.',
+        'We contact you to confirm the price, date and time.',
+        'Once confirmed, our team arrives and takes care of the rest.',
+      ],
     },
     fallback: {
       title: 'One last step: send it to us',
@@ -349,6 +362,11 @@ export const en = {
       'call' | 'whatsapp' | 'text' | 'email',
       string
     >,
+    draft: {
+      restored: 'We restored your unfinished request.',
+      clear: 'Start over',
+    },
+    changeService: 'Change service',
     message: {
       heading: 'New cleaning request — CleanNova website',
     },
@@ -362,10 +380,15 @@ export const en = {
     email: 'Email',
     ask: 'Ask for',
     cta: 'Request a cleaning',
+    follow: 'Follow CleanNova',
+    followSub: 'Find us on our official profiles.',
+    instagram: 'Instagram',
+    facebook: 'Facebook',
   },
   footer: {
     tagline: 'Professional cleaning for homes, apartments and offices in San Diego County.',
     explore: 'Explore',
+    follow: 'Follow us',
     reach: 'Contact',
     rights: 'All rights reserved.',
     area: 'San Diego County, California',
@@ -374,6 +397,7 @@ export const en = {
     whatsapp: 'Chat on WhatsApp',
     call: 'Call',
     quote: 'Get a quote',
+    label: 'Quick contact',
   },
 };
 

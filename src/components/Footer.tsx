@@ -2,6 +2,7 @@ import { Mail, MessageCircle, Phone } from 'lucide-react';
 import { links, site } from '../config/site';
 import { useI18n } from '../i18n';
 import { Logo } from './Logo';
+import { SocialIcons } from './Social';
 
 export function Footer() {
   const { t } = useI18n();
@@ -18,6 +19,7 @@ export function Footer() {
         <div>
           <Logo light />
           <p className="footer-tag">{t.footer.tagline}</p>
+          <SocialIcons />
         </div>
         <div>
           <h4>{t.footer.explore}</h4>
@@ -65,7 +67,7 @@ export function Footer() {
 export function FloatingBar() {
   const { t } = useI18n();
   return (
-    <div className="floating">
+    <aside className="floating" aria-label={t.floating.label}>
       <a className="floating-btn floating-btn--call" href={links.tel}>
         <Phone size={20} aria-hidden="true" />
         <span>{t.floating.call}</span>
@@ -77,6 +79,6 @@ export function FloatingBar() {
       <a className="floating-btn floating-btn--quote" href="#quote">
         <span>{t.floating.quote}</span>
       </a>
-    </div>
+    </aside>
   );
 }

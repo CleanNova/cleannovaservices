@@ -23,6 +23,7 @@ npm run preview    # sirve dist/ en http://localhost:4173
 | **Qué incluye cada servicio** | `src/i18n/en.ts` y `es.ts` → `services.items` | Listas de ejemplo. Ajustar a lo que realmente hace CleanNova. |
 | **Preguntas frecuentes** | `src/i18n/*.ts` → `faq` | Redactadas de forma genérica. Confirmar política de cancelación, si se llevan productos y equipo, formas de pago, etc. |
 | **Organization Service** | `src/i18n/*.ts` → `org` | Texto genérico; confirmar qué incluye el servicio. |
+| **Redes sociales** | `src/config/site.ts` → `socials` | Instagram `@cleannovasd` y Facebook (perfiles oficiales proporcionados). |
 | **Logo** | `src/components/Logo.tsx`, `public/favicon.svg` | Recreado en SVG a partir de la tarjeta. Sustituir por el logo vectorial oficial. |
 
 ## Pendiente de contenido (no se inventó)
@@ -32,6 +33,10 @@ npm run preview    # sirve dist/ en http://localhost:4173
 - Seguro y *bonded*, licencias, años de experiencia: agregarlos solo si son ciertos.
 - Dominio, dirección del negocio, redes sociales, Telegram (la tarjeta muestra el ícono pero no el usuario) y datos estructurados en `index.html`.
 - Páginas legales (privacidad y términos).
+
+## Publicación
+
+El archivo `netlify.toml` ya trae el comando de build (`npm run build`), la carpeta (`dist`), la versión de Node y cabeceras de seguridad básicas: al importar el repo en Netlify no hay que configurar nada manualmente. Funciona igual en Vercel o Cloudflare Pages (build `npm run build`, salida `dist`).
 
 ## Cómo reciben las solicitudes
 
@@ -60,3 +65,18 @@ src/
 ## Cómo se calcula el estimado
 
 `src/lib/quote.ts`: precio base + recámaras + baños (+ recargo por tamaño), por la frecuencia (semanal −15 %, quincenal −10 %, mensual −5 %), más extras. Se muestra como rango (−8 % / +15 %) con el aviso de que el precio final lo confirma CleanNova. Oficinas se cotizan por tamaño; post-construcción y organización son "cotización personalizada".
+
+## Experiencia de reserva (resumen)
+
+- Si el cliente llega desde una tarjeta de servicio o el estimador, el formulario empieza en "Detalles" (un paso menos).
+- Atajos de fecha (próximos 6 días) además del calendario; teléfono con formato automático; ejemplos en cada campo.
+- Validación específica por campo y el cursor salta al primer error. Cada fila del resumen final tiene "Editar".
+- Si el cliente recarga la página, se recupera su solicitud sin terminar (solo en esa pestaña, `sessionStorage`; se borra al enviar).
+- Si el envío falla, nunca se muestra como confirmado: se conserva todo y se ofrece reintentar o escribir por WhatsApp.
+- El mensaje que recibe CleanNova incluye servicio, detalles, estimado, fecha, contacto y la hora de envío (hora del Pacífico).
+
+## Verificación
+
+El flujo completo (31 comprobaciones: validaciones, edición, idioma, borrador, envío exitoso y fallido, móvil) y las auditorías automáticas (axe sin violaciones; Lighthouse 100/100/100/100 en escritorio y 98/100/100/100 en móvil) se ejecutaron contra la compilación de producción. Los scripts de prueba no forman parte del repositorio.
+
+**No verificado:** la entrega a un Formspree/Web3Forms real (se probó contra un servidor de formularios simulado) y la apariencia en iPhone/Safari reales (se probó con Chromium).

@@ -7,7 +7,7 @@ import { useId } from 'react';
 export function LogoMark({ size = 40 }: { size?: number }) {
   const gid = useId();
   return (
-    <svg width={size} height={size} viewBox="0 0 64 64" role="img" aria-label="CleanNova" className="logo-mark">
+    <svg width={size} height={size} viewBox="0 0 64 64" aria-hidden="true" className="logo-mark">
       <defs>
         <linearGradient id={gid} x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stopColor="#C2276B" />
@@ -30,7 +30,7 @@ export function LogoMark({ size = 40 }: { size?: number }) {
 
 function DropO() {
   return (
-    <svg className="logo-drop" viewBox="0 0 24 28" aria-hidden="true">
+    <svg className="logo-drop" viewBox="0 0 24 28" role="img" aria-label="O">
       <path d="M12 1.5C17.500 8 20.500 12.200 20.500 16.500a8.500 8.500 0 0 1-17 0C3.500 12.200 6.500 8 12 1.500z" fill="#13A5B2" />
       <path d="M8.200 17.300a4 4 0 0 0 3 3.500" fill="none" stroke="#fff" strokeOpacity=".75" strokeWidth="1.800" strokeLinecap="round" />
     </svg>
@@ -41,13 +41,12 @@ export function Logo({ light = false }: { light?: boolean }) {
   return (
     <span className={`logo${light ? ' logo--light' : ''}`}>
       <LogoMark size={38} />
-      <span className="logo-word" aria-hidden="true">
+      <span className="logo-word">
         <span className="logo-clean">CLEAN</span>
         <span className="logo-nova">
           N<DropO />VA
         </span>
       </span>
-      <span className="sr-only">CleanNova</span>
     </span>
   );
 }

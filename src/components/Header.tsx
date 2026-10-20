@@ -10,9 +10,12 @@ export function Header() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
+    const raf = requestAnimationFrame(onScroll);
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('scroll', onScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -32,7 +35,7 @@ export function Header() {
   return (
     <header className={`header${scrolled ? ' header--scrolled' : ''}${open ? ' header--open' : ''}`}>
       <div className="container header-inner">
-        <a href="#top" className="header-logo" aria-label="CleanNova" onClick={() => setOpen(false)}>
+        <a href="#top" className="header-logo" onClick={() => setOpen(false)}>
           <Logo />
         </a>
 
@@ -48,9 +51,10 @@ export function Header() {
         </nav>
 
         <div className="header-actions">
-          <button type="button" className="lang-btn" onClick={toggle} aria-label={`Switch language to ${t.nav.language}`}>
+          <button type="button" className="lang-btn" onClick={toggle} aria-label={`${lang === 'en' ? 'ES' : 'EN'} — ${t.nav.switchLang} (${t.nav.language})`}>
             <Languages size={16} aria-hidden="true" />
-            <span lang={lang === 'en' ? 'es' : 'en'}>{t.nav.language}</span>
+            <span className="lang-full" lang={lang === 'en' ? 'es' : 'en'}>{t.nav.language}</span>
+            <span className="lang-short" lang={lang === 'en' ? 'es' : 'en'} aria-hidden="true">{lang === 'en' ? 'ES' : 'EN'}</span>
           </button>
           <a href="#quote" className="btn btn--primary btn--sm header-cta">
             {t.nav.quote}

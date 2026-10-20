@@ -15,6 +15,12 @@ export const site = {
   region: 'San Diego County, CA',
 } as const;
 
+/** Official profiles (provided by the business). */
+export const socials = {
+  instagram: { url: 'https://www.instagram.com/cleannovasd', handle: '@cleannovasd' },
+  facebook: { url: 'https://www.facebook.com/share/1HxvvF5aUG/', handle: 'CleanNova' },
+} as const;
+
 export const links = {
   tel: `tel:${site.phoneE164}`,
   mailto: `mailto:${site.email}`,

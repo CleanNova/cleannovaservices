@@ -10,11 +10,12 @@ import {
   type HomeServiceId,
   type ServiceId,
 } from '../config/pricing';
-import { links, site } from '../config/site';
+import { links, site, socials } from '../config/site';
 import { fmt, useI18n } from '../i18n';
 import { estimate, usd } from '../lib/quote';
 import type { Seed } from '../App';
 import { serviceIcons } from './icons';
+import { FacebookIcon, InstagramIcon } from './Social';
 
 type Start = (seed: Partial<Seed>) => void;
 
@@ -365,6 +366,20 @@ export function Contact() {
         <p className="contact-owner">
           {c.ask} <strong>{site.owner}</strong>
         </p>
+        <div className="follow">
+          <div>
+            <h3>{c.follow}</h3>
+            <p className="muted">{c.followSub}</p>
+          </div>
+          <div className="follow-links">
+            <a className="btn btn--ghost" href={socials.instagram.url} target="_blank" rel="noopener noreferrer">
+              <InstagramIcon size={18} /> {socials.instagram.handle}
+            </a>
+            <a className="btn btn--ghost" href={socials.facebook.url} target="_blank" rel="noopener noreferrer">
+              <FacebookIcon size={18} /> {c.facebook}
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

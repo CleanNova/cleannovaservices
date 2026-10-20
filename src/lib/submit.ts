@@ -2,6 +2,7 @@ import { links, site } from '../config/site';
 
 export interface RequestPayload {
   language: 'en' | 'es';
+  submittedAt: string;
   service: string;
   details: string;
   extras: string;
@@ -43,7 +44,7 @@ export function requestToText(heading: string, p: RequestPayload): string {
     `Reach me by: ${p.preferredContact}`,
     p.notes ? `Notes: ${p.notes}` : '',
     '',
-    `(Sent from the CleanNova website · ${p.language.toUpperCase()})`,
+    `(Sent from the CleanNova website · ${p.language.toUpperCase()} · ${p.submittedAt})`,
   ]
     .filter((line, i, arr) => !(line === '' && arr[i - 1] === ''))
     .join('\n');

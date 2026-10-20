@@ -17,6 +17,7 @@ export const es: Dict = {
     menu: 'Abrir menú',
     close: 'Cerrar menú',
     language: 'English',
+    switchLang: 'Cambiar idioma',
     skip: 'Saltar al contenido',
   },
   hero: {
@@ -273,6 +274,9 @@ export const es: Dict = {
       title: '¿Cuándo te viene bien?',
       date: 'Fecha preferida',
       dateHelp: 'Confirmaremos la disponibilidad. La fecha más próxima es mañana.',
+      quick: 'Elección rápida',
+      other: 'O elige otra fecha',
+      tomorrow: 'Mañana',
       window: 'Horario',
       windows: {
         morning: 'Mañana (8am – 12pm)',
@@ -292,6 +296,7 @@ export const es: Dict = {
       preferred: 'Mejor forma de contactarte',
       preferredOpts: { call: 'Llamada', whatsapp: 'WhatsApp', text: 'Mensaje de texto', email: 'Correo' },
       privacy: 'Solo usamos tu información para preparar tu cotización y contactarte sobre tu limpieza.',
+      placeholders: { name: 'María López', phone: '(619) 555-0123', email: 'tu@correo.com', address: '123 Main St, Apt 4', zip: '92101' },
     },
     review: {
       title: 'Revisa y envía',
@@ -307,6 +312,7 @@ export const es: Dict = {
       custom: 'Cotización personalizada — te contactaremos con un precio',
       disclaimer: 'Es un estimado, no un precio final. Tu solicitud no es una reservación confirmada hasta que la confirmemos contigo.',
       none: 'Ninguno',
+      edit: 'Editar',
       bedroomsLabel: '{n} rec.',
       bathroomsLabel: '{n} baños',
     },
@@ -323,6 +329,13 @@ export const es: Dict = {
       title: '¡Solicitud recibida!',
       text: 'Gracias, {name}. Revisaremos tu solicitud y confirmaremos tu reservación por {channel}.',
       newRequest: 'Hacer otra solicitud',
+      summary: 'Tu solicitud',
+      nextTitle: 'Qué sigue',
+      next: [
+        'Revisamos tu solicitud y los detalles que compartiste.',
+        'Te contactamos para confirmar el precio, la fecha y la hora.',
+        'Una vez confirmado, nuestro equipo llega y se encarga del resto.',
+      ],
     },
     fallback: {
       title: 'Un último paso: envíanosla',
@@ -337,6 +350,11 @@ export const es: Dict = {
       retry: 'Intentar de nuevo',
     },
     channels: { call: 'llamada', whatsapp: 'WhatsApp', text: 'mensaje de texto', email: 'correo' },
+    draft: {
+      restored: 'Recuperamos tu solicitud sin terminar.',
+      clear: 'Empezar de nuevo',
+    },
+    changeService: 'Cambiar servicio',
     message: {
       heading: 'Nueva solicitud de limpieza — sitio web de CleanNova',
     },
@@ -350,10 +368,15 @@ export const es: Dict = {
     email: 'Correo',
     ask: 'Pregunta por',
     cta: 'Solicitar una limpieza',
+    follow: 'Síguenos',
+    followSub: 'Encuéntranos en nuestros perfiles oficiales.',
+    instagram: 'Instagram',
+    facebook: 'Facebook',
   },
   footer: {
     tagline: 'Limpieza profesional para casas, apartamentos y oficinas en el Condado de San Diego.',
     explore: 'Explora',
+    follow: 'Síguenos',
     reach: 'Contacto',
     rights: 'Todos los derechos reservados.',
     area: 'Condado de San Diego, California',
@@ -362,5 +385,6 @@ export const es: Dict = {
     whatsapp: 'Escríbenos por WhatsApp',
     call: 'Llamar',
     quote: 'Cotizar',
+    label: 'Contacto rápido',
   },
 };

@@ -1,7 +1,6 @@
-import { useCallback, useState } from 'react';
+import { lazy, Suspense, useCallback, useState } from 'react';
 import type { ServiceId } from './config/pricing';
 import { useI18n } from './i18n';
-import { BookingWizard } from './components/booking/BookingWizard';
 import { Footer, FloatingBar } from './components/Footer';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
@@ -14,6 +13,8 @@ export interface Seed {
   bedrooms?: number;
   bathrooms?: number;
 }
+
+const BookingWizard = lazy(() => import('./components/booking/BookingWizard').then((m) => ({ default: m.BookingWizard })));
 
 export default function App() {
   const { t } = useI18n();
@@ -34,10 +35,9 @@ export default function App() {
         <Hero onStart={start} />
         <Strip />
         <Services onStart={start} />
+        <Organization onStart={start} />
         <HowItWorks />
         <Pricing onStart={start} />
-        <Organization onStart={start} />
-        <Areas />
         <section className="section section--quote" id="quote">
           <div className="container">
             <div className="section-head section-head--center">
@@ -45,9 +45,12 @@ export default function App() {
               <h2>{t.booking.title}</h2>
               <p className="lead">{t.booking.sub}</p>
             </div>
-            <BookingWizard key={seed.n} seed={seed} />
+            <Suspense fallback={<div className="wizard-skeleton card" aria-busy="true" />}>
+              <BookingWizard key={seed.n} seed={seed} />
+            </Suspense>
           </div>
         </section>
+        <Areas />
         <Faq />
         <Contact />
       </main>

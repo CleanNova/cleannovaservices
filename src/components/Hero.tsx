@@ -30,9 +30,6 @@ export function Hero({ onStart }: { onStart: (seed: Partial<Seed>) => void }) {
       <div className="hero-bg" aria-hidden="true">
         <span className="blob blob--1" />
         <span className="blob blob--2" />
-        {Array.from({ length: 7 }, (_, i) => (
-          <span key={i} className={`bubble bubble--${i + 1}`} />
-        ))}
       </div>
 
       <div className="container hero-grid">
